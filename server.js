@@ -1,5 +1,5 @@
-const http = require('http');
-const app = require('./app');
+const http = require('http'); // appel du plugin http de nodejs
+const app = require('./app'); //import du fichier app
 
 const normalizePort = val => {
   const port = parseInt(val, 10);
@@ -12,7 +12,7 @@ const normalizePort = val => {
   }
   return false;
 };
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000'); //on définit le port sur lequel sera exécuté le serveur
 app.set('port', port);
 
 const errorHandler = error => {
@@ -35,7 +35,7 @@ const errorHandler = error => {
   }
 };
 
-const server = http.createServer(app);
+const server = http.createServer(app); 
 
 server.on('error', errorHandler);
 server.on('listening', () => {

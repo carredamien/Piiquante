@@ -1,14 +1,15 @@
 // require des fichiers
 // les plugins
-const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
-const helmet = require("helmet");
+const express = require('express'); //appel du framework express
+const mongoose = require('mongoose'); //appel de mongoose pour se connecter à la bdd
+const path = require('path'); //appel de path, pour récupérer le chemin à notre fichier images
+const helmet = require("helmet"); //améliore la sécurité (header, faille xss, ...)
+
 //les routes
 const saucesRoutes = require('./routes/sauces')
 const userRoutes = require('./routes/user');
 
-//appel d'express
+//appel de la methode d'express
 const app = express();
 app.use(helmet());
 //Connexion à la database
@@ -17,7 +18,7 @@ mongoose.connect(process.env.MONGO_URI,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
-  .catch(() => console.log('Connexion à MongoDB échouée !'));
+  .catch(() => console.log('La connexion à MongoDB a échoué !'));
 
 //mise en place des en-têtes CORS
 app.use((req, res, next) => {

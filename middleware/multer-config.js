@@ -1,5 +1,5 @@
-//1: appel des plugins
-const multer = require('multer');
+// appel des plugins
+const multer = require('multer'); //multer permet d'accepter les téléchargements de fichier, ici des images
 
 const MIME_TYPES = {
   'image/jpg': 'jpg',
